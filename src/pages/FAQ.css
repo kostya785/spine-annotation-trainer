@@ -1,0 +1,30 @@
+.faq-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+  }
+  
+  .faq-page h1 {
+    font-size: 2rem;
+    margin-bottom: 32px;
+  }
+  
+  .faq-block {
+    margin-bottom: 32px;
+  }
+  
+  .faq-block h2 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+  
+  .faq-block p {
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  
+  .faq-block ul {
+    margin-left: 20px;
+    margin-bottom: 8px;
+  }
+  

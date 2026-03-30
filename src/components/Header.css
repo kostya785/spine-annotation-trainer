@@ -1,0 +1,55 @@
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 40px;
+    border-bottom: 1px solid #d2d2d7;
+    background: #fff;
+  }
+  
+  .left {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+  
+  .nav {
+    display: flex;
+    gap: 25px;
+  }
+  
+  .right {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+  
+  .socials {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+  }
+  
+  .social-icon img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    opacity: 0.9;
+    transition: 0.15s ease;
+  }
+  
+  .social-icon img:hover {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+
+  .logo{
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    opacity: 20;
+    display: flex;
+    
+    align-items: left;
+  }
+  

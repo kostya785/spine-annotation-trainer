@@ -1,0 +1,36 @@
+.main-page {
+  min-height: calc(100vh - 160px); 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  box-sizing: border-box;
+  gap: 40px;
+}
+
+.main-lottie-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-lottie {
+  width: min(60vw, 500px);
+  height: auto;
+}
+.leftmain {
+  display: flex;
+  flex-direction: column; 
+  gap: 16px;               
+}
+.leftmain h1 {
+  font-size: clamp(32px, 5vw, 64px);
+  margin: 0;
+}
+
+.leftmain p {
+  font-size: clamp(16px, 2vw, 22px);
+  opacity: 0.7;
+  line-height: 1.4;
+}
