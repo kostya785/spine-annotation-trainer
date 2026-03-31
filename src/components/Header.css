@@ -13,6 +13,12 @@
   box-sizing: border-box;
 }
 
+.header-logo {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  opacity: 0.9;
+}
 
 .left {
   display: flex;
