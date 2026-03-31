@@ -10,7 +10,8 @@ function Header() {
     <header className={`header ${theme}`}>
       <div className="left">
         <div className="logo">
-          <img src="/logo.png" alt="logo" />
+        <img src={`${import.meta.env.BASE_URL}logo.png`} alt="logo" />
+
         </div>
 
         <nav className="nav">
@@ -28,7 +29,7 @@ function Header() {
             rel="noopener noreferrer"
             className="social-icon"
           >
-            <img src="tg.png" alt="Telegram" />
+            <img src={`${import.meta.env.BASE_URL}tg.png`} alt="Telegram" />
           </a>
 
           <a 
@@ -37,7 +38,7 @@ function Header() {
             rel="noopener noreferrer"
             className="social-icon"
           >
-            <img src="wk.png" alt="VK" />
+           <img src={`${import.meta.env.BASE_URL}wk.png`} alt="VK" />
           </a>
 
           <a 
@@ -45,14 +46,14 @@ function Header() {
             rel="noopener noreferrer"
             className="social-icon"
           >
-            <img src="gmail.png" alt="Gmail" />
+            <img src={`${import.meta.env.BASE_URL}gmail.png`} alt="Gmail" />
           </a>
 
           <a 
             href="/max-404" 
             className="social-icon"
           >
-            <img src="max.png" alt="max" />
+            <img src={`${import.meta.env.BASE_URL}max.png`} alt="max" />
           </a>
         </div>
 
@@ -67,3 +68,10 @@ function Header() {
 }
 
 export default Header;
+
+
+
+
+
+
+

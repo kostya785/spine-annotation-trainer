@@ -17,7 +17,8 @@ function About() {
         {/* 1 */}
         <div className="about-card">
   <div className="about-image">
-    <img src="doctor.jpg" alt="Врач с медицинским снимком" />
+  <img src={`${import.meta.env.BASE_URL}doctor.jpg`} alt="Врач с медицинским снимком" />
+    
   </div>
   <p className="about-text">
     {t.first}
@@ -27,7 +28,8 @@ function About() {
         {/* 2 */}
         <div className="about-card">
   <div className="about-image">
-    <img src="puz.jpg" alt="Рентгеновские пазлы" />
+  <img src={`${import.meta.env.BASE_URL}puz.jpg`} alt="Рентгеновские пазлы" />
+   
   </div>
   <p className="about-text">
            {t.second}
@@ -37,7 +39,8 @@ function About() {
         {/* 3 */}
         <div className="about-card">
   <div className="about-image">
-    <img src="pixel.jpg" alt="Рентгеновские пазлы" />
+  <img src={`${import.meta.env.BASE_URL}pixel.jpg`} alt="Рентгеновские пазлы" />
+    
   </div>
   <p className="about-text">
             {t.third}
@@ -47,7 +50,7 @@ function About() {
         {/* 4 */}
         <div className="about-card">
   <div className="about-image">
-    <img src="doc.jpg" alt="Рентгеновские пазлы" />
+  <img src={`${import.meta.env.BASE_URL}doc.jpg`} alt="Рентгеновские пазлы" />
   </div>
   <p className="about-text">
             {t.fourth}
@@ -57,7 +60,7 @@ function About() {
         {/* 5 */}
         <div className="about-card">
   <div className="about-image">
-    <img src="neuron.jpg" alt="Рентгеновские пазлы" />
+  <img src={`${import.meta.env.BASE_URL}neuron.jpg`} alt="Рентгеновские пазлы" />
   </div>
   <p className="about-text">
             {t.fifth}
@@ -67,7 +70,7 @@ function About() {
         {/* 6 */}
         <div className="about-card">
   <div className="about-image">
-    <img src="students.jpg" alt="Рентгеновские пазлы" />
+  <img src={`${import.meta.env.BASE_URL}students.jpg`} alt="Рентгеновские пазлы" />
   </div>
   <p className="about-text">
             {t.six}

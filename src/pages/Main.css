@@ -1,5 +1,5 @@
 .main-page {
-  min-height: calc(100vh - 160px); 
+  min-height: calc(100vh - 160px);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,11 +19,13 @@
   width: min(60vw, 500px);
   height: auto;
 }
+
 .leftmain {
   display: flex;
-  flex-direction: column; 
-  gap: 16px;               
+  flex-direction: column;
+  gap: 16px;
 }
+
 .leftmain h1 {
   font-size: clamp(32px, 5vw, 64px);
   margin: 0;
@@ -33,4 +35,36 @@
   font-size: clamp(16px, 2vw, 22px);
   opacity: 0.7;
   line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+  .main-page {
+    flex-direction: column;
+    text-align: center;
+    padding: 32px 20px;
+    gap: 32px;
+  }
+
+  .main-lottie {
+    width: min(70vw, 420px);
+  }
+}
+
+@media (max-width: 600px) {
+  .main-page {
+    padding: 24px 16px;
+    gap: 24px;
+  }
+
+  .leftmain h1 {
+    font-size: clamp(28px, 8vw, 48px);
+  }
+
+  .leftmain p {
+    font-size: clamp(15px, 4vw, 20px);
+  }
+
+  .main-lottie {
+    width: min(80vw, 360px);
+  }
 }

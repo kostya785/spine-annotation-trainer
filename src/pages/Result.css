@@ -1,5 +1,3 @@
-
-
 .result-page {
   max-width: 1400px;
   margin: 0 auto;
@@ -45,7 +43,6 @@
   font-size: 1rem;
 }
 
-
 .result-section {
   margin-bottom: 60px;
 }
@@ -57,9 +54,6 @@
   opacity: 0.9;
   color: #333;
 }
-
-
-
 
 .image-preview-card {
   padding: 20px;
@@ -84,8 +78,6 @@
   font-size: 0.95rem;
   opacity: 0.7;
 }
-
-
 
 .result-table {
   width: 100%;
@@ -117,8 +109,6 @@
 .result-table tr:hover td {
   background: #f7f7f7;
 }
-
-
 
 .metrics-grid {
   display: grid;
@@ -200,8 +190,6 @@
   background: linear-gradient(90deg, #007aff, #28a745);
 }
 
-
-
 .chart-card {
   padding: 30px;
   border-radius: 20px;
@@ -227,12 +215,10 @@
   font-size: 1.1rem;
 }
 
-
 .chart-rose {
   display: block;
   margin: 0 auto;
 }
-
 
 .chart-line {
   display: flex;
@@ -272,7 +258,6 @@
   opacity: 0.7;
 }
 
-
 .chart-bar {
   display: flex;
   gap: 20px;
@@ -311,17 +296,9 @@
   transition: height 0.3s ease;
 }
 
-.bar-base {
-  background: #007aff;
-}
-
-.bar-dice {
-  background: #28a745;
-}
-
-.bar-jaccard {
-  background: #ff9800;
-}
+.bar-base { background: #007aff; }
+.bar-dice { background: #28a745; }
+.bar-jaccard { background: #ff9800; }
 
 .bar-label {
   margin-top: 8px;
@@ -357,8 +334,6 @@
 .legend-dot.dice { background: #28a745; }
 .legend-dot.jaccard { background: #ff9800; }
 
-
-
 .back-btn {
   display: inline-block;
   margin-top: 20px;
@@ -377,9 +352,6 @@
   transform: translateY(-2px);
 }
 
-
-
-
 @media (max-width: 900px) {
   .chart-line {
     height: 160px;
@@ -397,32 +369,28 @@
     font-size: 2rem;
   }
 }
+
 .result-buttons {
   display: flex;
   gap: 20px;
   margin-top: 40px;
 }
 
-
 .result-btn {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-
-  min-width: 200px;       
+  min-width: 200px;
   padding: 12px 18px;
-
   background: #007aff;
   color: white;
   border-radius: 8px;
   text-decoration: none;
-
   font-size: 15px;
   font-weight: 500;
-
   transition: 0.2s;
   text-align: center;
-  white-space: nowrap;    
+  white-space: nowrap;
 }
 
 .result-btn:hover {

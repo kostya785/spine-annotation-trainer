@@ -26,7 +26,7 @@ function Footer() {
           <Link to="/faq" className="footer-link">
             FAQ
           </Link>
-          <a href="/manual.pdf" target="_blank" rel="noreferrer" className="footer-link">
+          <a  href={`${import.meta.env.BASE_URL}manual.pdf`} target="_blank" rel="noreferrer" className="footer-link">
             {t.manual}
           </a>
         </div>
@@ -36,3 +36,4 @@ function Footer() {
 }
 
 export default Footer;
+
