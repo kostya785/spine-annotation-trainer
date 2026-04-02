@@ -10,8 +10,8 @@ function Header() {
     <header className={`header ${theme}`}>
       <div className="left">
         <div className="logo">
-        <img src={logo} alt="logo" className="header-logo" />
-
+        
+        <img src={`${import.meta.env.BASE_URL}logo.png`} alt="logo" className="header-logo" />
 
         </div>
 

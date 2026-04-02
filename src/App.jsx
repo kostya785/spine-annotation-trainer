@@ -36,10 +36,10 @@ function App() {
             <Route path="/faq" element={<FAQ />} />
             <Route path="/metrics-info" element={<MetricsInfo />} />
 
-            {/* Специальная страница для твоей ссылки "Macs" */}
+            {}
             <Route path="/macs" element={<PrettyError />} />
 
-            {/* Ловим любые неизвестные маршруты */}
+            {}
             <Route path="*" element={<PrettyError />} />
           </Routes>
         </main>

@@ -1,9 +1,32 @@
+
+
 .result-page {
   max-width: 1400px;
   margin: 0 auto;
   padding: 40px 20px;
   min-height: 100vh;
 }
+
+.result-section {
+  margin-bottom: 60px;
+}
+
+.result-section h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  opacity: 0.9;
+  color: #333;
+}
+
+.result-title {
+  font-size: 2.2rem;
+  margin-bottom: 50px;
+  text-align: center;
+  font-weight: 600;
+  color: #222;
+}
+
 
 .comparison-done-banner {
   display: flex;
@@ -25,35 +48,6 @@
   line-height: 1;
 }
 
-.result-title {
-  font-size: 2.2rem;
-  margin-bottom: 50px;
-  text-align: center;
-  font-weight: 600;
-  color: #222;
-}
-
-.chart-empty {
-  padding: 40px 20px;
-  text-align: center;
-  color: #666;
-  border: 2px dashed #e0e0e0;
-  border-radius: 16px;
-  background: #fafafa;
-  font-size: 1rem;
-}
-
-.result-section {
-  margin-bottom: 60px;
-}
-
-.result-section h2 {
-  margin-bottom: 20px;
-  font-size: 1.5rem;
-  font-weight: 600;
-  opacity: 0.9;
-  color: #333;
-}
 
 .image-preview-card {
   padding: 20px;
@@ -73,11 +67,7 @@
   object-fit: contain;
 }
 
-.image-meta {
-  margin-top: 12px;
-  font-size: 0.95rem;
-  opacity: 0.7;
-}
+
 
 .result-table {
   width: 100%;
@@ -109,6 +99,7 @@
 .result-table tr:hover td {
   background: #f7f7f7;
 }
+
 
 .metrics-grid {
   display: grid;
@@ -160,6 +151,8 @@
   background: linear-gradient(90deg, #ff9800, #fd7e14);
 }
 
+
+
 .overall-score {
   margin-top: 32px;
   padding: 24px;
@@ -190,6 +183,8 @@
   background: linear-gradient(90deg, #007aff, #28a745);
 }
 
+
+
 .chart-card {
   padding: 30px;
   border-radius: 20px;
@@ -199,26 +194,16 @@
   box-shadow: 0 6px 24px rgba(0,0,0,0.08);
 }
 
-.chart-title {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-  opacity: 0.85;
-  font-weight: 600;
-}
-
-.chart-placeholder {
-  border-radius: 16px;
-  border: 2px dashed #b0b0b5;
-  padding: 30px;
+.chart-empty {
+  padding: 40px 20px;
   text-align: center;
-  color: #4da8daaa;
-  font-size: 1.1rem;
+  color: #666;
+  border: 2px dashed #e0e0e0;
+  border-radius: 16px;
+  background: #fafafa;
+  font-size: 1rem;
 }
 
-.chart-rose {
-  display: block;
-  margin: 0 auto;
-}
 
 .chart-line {
   display: flex;
@@ -258,24 +243,37 @@
   opacity: 0.7;
 }
 
+
 .chart-bar {
   display: flex;
   gap: 20px;
   align-items: flex-end;
   height: 240px;
   padding: 20px 0;
+  max-height: 260px;
 }
 
 .chart-bar.chart-by-polygon {
-  flex-wrap: wrap;
-  justify-content: center;
-  min-height: 200px;
+  flex-wrap: nowrap;          
+  overflow-x: auto;           
+  overflow-y: visible;
+  padding-bottom: 16px;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
 }
 
 .bar-group {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-shrink: 0;             
+  min-width: 48px;
+}
+
+@media (max-width: 600px) {
+  .bar-group {
+    min-width: 40px;
+  }
 }
 
 .bar-trio {
@@ -285,15 +283,15 @@
   height: 180px;
 }
 
-.bar-trio .bar {
-  width: 20px;
-  min-height: 4px;
-}
-
 .bar {
   width: 18px;
   border-radius: 6px;
   transition: height 0.3s ease;
+  min-height: 4px;
+}
+
+.bar-trio .bar {
+  width: 20px;
 }
 
 .bar-base { background: #007aff; }
@@ -306,6 +304,7 @@
   font-weight: 600;
   opacity: 0.8;
 }
+
 
 .chart-legend {
   display: flex;
@@ -334,41 +333,7 @@
 .legend-dot.dice { background: #28a745; }
 .legend-dot.jaccard { background: #ff9800; }
 
-.back-btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 14px 28px;
-  background: #007aff;
-  color: white;
-  border-radius: 14px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: all 0.25s ease;
-}
 
-.back-btn:hover {
-  background: #0062cc;
-  transform: translateY(-2px);
-}
-
-@media (max-width: 900px) {
-  .chart-line {
-    height: 160px;
-  }
-  .chart-bar {
-    height: 200px;
-  }
-}
-
-@media (max-width: 600px) {
-  .result-title {
-    font-size: 1.8rem;
-  }
-  .metric-value {
-    font-size: 2rem;
-  }
-}
 
 .result-buttons {
   display: flex;
@@ -395,4 +360,24 @@
 
 .result-btn:hover {
   background: #005fcc;
+}
+
+
+
+@media (max-width: 900px) {
+  .chart-line {
+    height: 160px;
+  }
+  .chart-bar {
+    height: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .result-title {
+    font-size: 1.8rem;
+  }
+  .metric-value {
+    font-size: 2rem;
+  }
 }
