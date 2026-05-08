@@ -1,8 +1,8 @@
 import "./Result.css";
 import { useLocation, Link } from "react-router-dom";
-import { useMemo } from "react";
-import { useContext } from "react";
+import { useMemo, useContext } from "react";
 import { AppContext } from "../context/AppContext";
+
 function Result() {
   const { t } = useContext(AppContext);
   const location = useLocation();
@@ -32,17 +32,19 @@ function Result() {
     const len = Math.min(A.length, B.length);
     if (len === 0) return 0;
 
+    const softThreshold = 200; 
+
     let score = 0;
     for (let i = 0; i < len; i++) {
       const [ax, ay] = A[i];
       const [bx, by] = B[i];
       const dist = Math.hypot(ax - bx, ay - by);
-      score += Math.max(0, 1 - dist / 80);
+      score += Math.max(0, 1 - dist / softThreshold);
     }
     return Math.round((score / len) * 100);
   };
 
-  const overlapMetrics = (ref, usr, threshold = 20) => {
+  const overlapMetrics = (ref, usr, threshold = 60) => { 
     if (!ref || !usr) return { dice: 0, jaccard: 0 };
 
     const A = ref.points || [];
@@ -81,9 +83,11 @@ function Result() {
     };
   };
 
+
   const findBestMatch = (refShape, availableUserShapes) => {
     let bestUsr = null;
     let bestScore = -1;
+
     availableUserShapes.forEach((usr) => {
       const b = baseMetric(refShape, usr);
       if (b > bestScore) {
@@ -91,6 +95,7 @@ function Result() {
         bestUsr = usr;
       }
     });
+
     return bestUsr;
   };
 
@@ -139,15 +144,15 @@ function Result() {
     <section className="result-page">
       <div className="comparison-done-banner">
         <span className="comparison-done-icon">✓</span>
-      <span>{t.compare}</span>
+        <span>{t.compare}</span>
       </div>
+
       <h1 className="result-title">{t.result}</h1>
 
       <div className="result-section">
         <h2>{t.Photoused}</h2>
         <div className="image-preview-card">
           {imgSafe && <img src={imgSafe} alt="Снимок" className="result-image" />}
-          
         </div>
       </div>
 
@@ -207,92 +212,24 @@ function Result() {
 
         <div className="overall-score">
           <span className="overall-label">{t.a}</span>
-          <span className="overall-value">{Math.round((avg("base") + avg("dice") + avg("jaccard")) / 3)}%</span>
+          <span className="overall-value">
+            {Math.round((avg("base") + avg("dice") + avg("jaccard")) / 3)}%
+          </span>
           <div className="metric-bar-wrap overall-bar">
             <div
               className="metric-bar metric-bar-overall"
-              style={{ width: `${Math.round((avg("base") + avg("dice") + avg("jaccard")) / 3)}%` }}
+              style={{
+                width: `${Math.round((avg("base") + avg("dice") + avg("jaccard")) / 3)}%`,
+              }}
             />
           </div>
         </div>
       </div>
 
-      <div className="result-section">
-        <h2>{t.chart}</h2>
-        <div className="chart-card">
-          {results.length === 0 ? (
-            <div className="chart-empty">{t.c}</div>
-          ) : (
-          <>
-          <div className="chart-bar chart-by-polygon">
-            {results.map((r) => (
-              <div key={r.id} className="bar-group">
-                <div className="bar-trio">
-                  <div
-                    className="bar bar-base"
-                    style={{ height: `${Math.max(4, (r.base / maxMetric) * 100)}%` }}
-                    title={`Базовая: ${r.base}%`}
-                  />
-                  <div
-                    className="bar bar-dice"
-                    style={{ height: `${Math.max(4, (r.dice / maxMetric) * 100)}%` }}
-                    title={`Dice: ${r.dice}%`}
-                  />
-                  <div
-                    className="bar bar-jaccard"
-                    style={{ height: `${Math.max(4, (r.jaccard / maxMetric) * 100)}%` }}
-                    title={`Jaccard: ${r.jaccard}%`}
-                  />
-                </div>
-                <div className="bar-label">{r.id}</div>
-              </div>
-            ))}
-          </div>
-          <div className="chart-legend">
-            <span><i className="legend-dot base" /> {t.base}</span>
-            <span><i className="legend-dot dice" /> Dice</span>
-            <span><i className="legend-dot jaccard" /> Jaccard</span>
-          </div>
-          </>
-          )}
-        </div>
-      </div>
-
-      <div className="result-section">
-        <h2>{t.b}</h2>
-        <div className="chart-card">
-          <div className="chart-line chart-summary">
-            <div className="line-point-wrapper">
-              <div
-                className="line-point line-base"
-                style={{ height: `${avg("base")}%` }}
-              />
-              <div className="line-label">{t.base} {avg("base")}%</div>
-            </div>
-            <div className="line-point-wrapper">
-              <div
-                className="line-point line-dice"
-                style={{ height: `${avg("dice")}%` }}
-              />
-              <div className="line-label">Dice {avg("dice")}%</div>
-            </div>
-            <div className="line-point-wrapper">
-              <div
-                className="line-point line-jaccard"
-                style={{ height: `${avg("jaccard")}%` }}
-              />
-              <div className="line-label">Jaccard {avg("jaccard")}%</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div className="result-buttons">
-  <Link to="/" className="result-btn">{t.back}</Link>
-  <Link to="/metrics-info" className="result-btn">{t.how}</Link>
-</div>
-
-
+        <Link to="/" className="result-btn">{t.back}</Link>
+        <Link to="/metrics-info" className="result-btn">{t.how}</Link>
+      </div>
     </section>
   );
 }
