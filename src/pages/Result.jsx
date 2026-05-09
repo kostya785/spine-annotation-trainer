@@ -44,20 +44,20 @@ function Result() {
     return Math.round((score / len) * 100);
   };
 
-  const overlapMetrics = (ref, usr, threshold = 60) => { 
+  const overlapMetrics = (ref, usr, threshold = 120) => {
     if (!ref || !usr) return { dice: 0, jaccard: 0 };
-
+  
     const A = ref.points || [];
     const B = usr.points || [];
     if (A.length === 0 || B.length === 0) return { dice: 0, jaccard: 0 };
-
+  
     let intersection = 0;
     const used = new Set();
-
+  
     A.forEach(([ax, ay]) => {
       let best = Infinity;
       let bestIdx = -1;
-
+  
       B.forEach(([bx, by], idx) => {
         if (used.has(idx)) return;
         const d = Math.hypot(ax - bx, ay - by);
@@ -66,23 +66,26 @@ function Result() {
           bestIdx = idx;
         }
       });
-
+  
       if (bestIdx !== -1 && best <= threshold) {
         intersection++;
         used.add(bestIdx);
       }
     });
-
+  
     const union = A.length + B.length - intersection;
     const dice = union > 0 ? (2 * intersection) / (A.length + B.length) : 0;
     const jaccard = union > 0 ? intersection / union : 0;
-
+  
+    const diceScore = Math.round(Math.min(100, dice * 100));
+    const jaccardScore = Math.round(Math.min(100, jaccard * 100));
+  
     return {
-      dice: Math.round(Math.min(100, dice * 100)),
-      jaccard: Math.round(Math.min(100, jaccard * 100)),
+      dice: Math.max(30, diceScore),
+      jaccard: Math.max(20, jaccardScore),
     };
   };
-
+  
 
   const findBestMatch = (refShape, availableUserShapes) => {
     let bestUsr = null;
